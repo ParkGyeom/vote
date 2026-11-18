@@ -3,41 +3,77 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>DRAG · 투표하러 가기</title>
+<title>DRAG · 투표하는 법</title>
 <script>
-  // ▼ 투표 페이지 주소가 나오면 이 한 줄의 따옴표 안만 바꾸면 돼 ▼
+  // ▼ 버튼이 열 주소 — 바꾸려면 이 한 줄의 따옴표 안만 고치면 돼 ▼
   const TARGET = "https://sjpt.sejong.ac.kr/main/view/Login/doSsoLogin.do?p=";
-  // ▲ ------------------------------------------------------------ ▲
-  location.replace(TARGET);
+  // ▲ ---------------------------------------------------------- ▲
 </script>
 <style>
-  html, body { margin: 0; height: 100%; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
   body {
+    min-height: 100vh; min-height: 100dvh;
     display: flex; align-items: center; justify-content: center;
-    background: #2F6FED; color: #FFFFFF;
+    padding: 32px 20px;
+    background: #2F6FED; color: #111111;
     font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
-    text-align: center; word-break: keep-all;
+    word-break: keep-all;
   }
+  main { width: 100%; max-width: 440px; }
   .logo {
-    display: inline-block; padding: 6px 16px; margin-bottom: 28px;
+    display: inline-block; padding: 6px 16px; margin-bottom: 18px;
     border: 2px dashed #FFFFFF; background: rgba(255,255,255,0.12);
-    font-size: 44px; font-weight: 900; letter-spacing: -0.04em; line-height: 1;
+    color: #FFFFFF; font-size: 40px; font-weight: 900; letter-spacing: -0.04em; line-height: 1;
   }
-  p { margin: 0 0 6px; font-size: 17px; font-weight: 600; }
-  p.en { font-size: 14px; font-weight: 500; opacity: 0.85; margin-bottom: 28px; }
-  a {
-    display: inline-block; padding: 14px 28px; border-radius: 999px;
-    background: #FFFFFF; color: #2F6FED; font-size: 16px; font-weight: 800; text-decoration: none;
+  h1 { margin: 0 0 4px; color: #FFFFFF; font-size: 26px; font-weight: 900; letter-spacing: -0.02em; }
+  .sub { margin: 0 0 22px; color: rgba(255,255,255,0.85); font-size: 15px; font-weight: 600; }
+  .card { background: #FFFFFF; border-radius: 16px; padding: 22px 20px; }
+  ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 18px; }
+  li { display: flex; gap: 14px; align-items: flex-start; }
+  .num {
+    flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%;
+    background: #2F6FED; color: #FFFFFF; font-size: 15px; font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
   }
+  .ko { margin: 2px 0 2px; font-size: 17px; font-weight: 800; line-height: 1.45; }
+  .path { margin: 2px 0 4px; font-size: 16px; font-weight: 700; line-height: 1.6; }
+  .path b { white-space: nowrap; }
+  .path i { font-style: normal; color: #2F6FED; padding: 0 2px; }
+  .en { margin: 0; font-size: 13px; font-weight: 500; line-height: 1.5; color: #6B7280; }
+  .btn {
+    display: block; margin-top: 22px; padding: 16px; border-radius: 12px;
+    background: #2F6FED; color: #FFFFFF; text-align: center; text-decoration: none;
+    font-size: 17px; font-weight: 800;
+  }
+  .btn span { display: block; font-size: 13px; font-weight: 600; opacity: 0.85; margin-top: 2px; }
 </style>
 </head>
 <body>
   <main>
     <div class="logo">DRAG</div>
-    <p>투표 페이지로 이동하고 있어요…</p>
-    <p class="en">Taking you to the voting page…</p>
-    <a id="go" href="https://sjpt.sejong.ac.kr/">이동이 안 되면 눌러주세요 · Tap here</a>
-    <noscript><p style="margin-top:20px">세종대학교 포털(sjpt.sejong.ac.kr)에 로그인해 투표해 주세요.</p></noscript>
+    <h1>투표는 이렇게 해요</h1>
+    <p class="sub">How to vote · 제39대 컴퓨터공학과 학생회 선거</p>
+
+    <div class="card">
+      <ol>
+        <li>
+          <span class="num">1</span>
+          <div>
+            <p class="ko">아래 버튼을 눌러 세종대 포털에 로그인</p>
+            <p class="en">Tap the button below and log in to the Sejong portal.</p>
+          </div>
+        </li>
+        <li>
+          <span class="num">2</span>
+          <div>
+            <p class="path"><b>학사정보시스템</b> <i>›</i> <b>학적/졸업</b> <i>›</i> <b>내정보관리 및 증명서신청</b> <i>›</i> <b>투표(설문)참여</b></p>
+            <p class="en">Academic Info System › Records/Graduation › My Info &amp; Certificates › Vote (Survey)</p>
+          </div>
+        </li>
+      </ol>
+      <a class="btn" id="go" href="https://sjpt.sejong.ac.kr/">포털 로그인하러 가기<span>Log in to the portal</span></a>
+    </div>
   </main>
   <script>document.getElementById("go").href = TARGET;</script>
 </body>
